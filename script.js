@@ -14,6 +14,7 @@ let leftN;
 let rightN;
 let lPic;
 let rPic;
+let alPic;
 
 //starter function to pull a random pokemon from the PokeAPI
   function getRandomPokemonLeft() {
@@ -25,6 +26,7 @@ let rPic;
       <img src=${pokeData["sprites"]["front_default"]}></div>`
       //console.log(leftPic);
       leftN = pokeData["name"];
+      alPic = pokeData["sprites"]["front_default"];
       leftDef = pokeData["stats"][3]["base_stat"];
       console.log(leftDef);
       //$("#left").remove(".lRemove");
@@ -43,6 +45,7 @@ let rPic;
       </div>`
       //console.log(rPic);
       rightN = pokeData["name"];
+      arPic = pokeData["sprites"]["front_default"];
       rightDef = pokeData["stats"][3]["base_stat"];
       console.log(rightDef);
       //$("#right").remove(".rRemove");
@@ -54,9 +57,11 @@ let rPic;
   function battle() {
     let message;
     if (leftDef > rightDef) {
-      message = `<h1 style="text-align: center">Winner: <br> ${leftN}</h2>`;
+      message = `<div style="text-align: center"><h1>Winner: </h1><br><h2> ${leftN} <br></h2>
+      <img src=${alPic}></div>`;
     } else if (rightDef > leftDef) {
-      message = `<h1 style="text-align: center">Winner: <br> ${rightN}</h2>`;
+      message = `<div style="text-align: center"><h1>Winner: </h1><br><h2> ${rightN} <br></h2>
+      <img src=${arPic}></div>`;
     } else {
       message = `<h1 style="text-align: center">It's a tie!</h1>`;
     }
